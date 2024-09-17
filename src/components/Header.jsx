@@ -14,9 +14,14 @@ function Header() {
   const taskRef = useRef('');
 
   const handleClick = () => {
-    dispatch(addTask(taskRef.current.value))
+    if (taskRef.current.value === '') {
+      return; // Exit early if the input field is empty
+    }
+  
+    dispatch(addTask(taskRef.current.value));
     taskRef.current.value = '';
-  }
+  };
+  
 
   useEffect(() => {
   (darkMode)? document.querySelector('html').className = 'dark' : document.querySelector('html').className = 'light';
@@ -37,15 +42,23 @@ function Header() {
         </div>
         
         {/* Container for moon icon */}
-        <img onClick={() => setDarkMode(!darkMode)} className='cursor-pointer absolute right-20 top-1/2 transform -translate-y-1/2 w-12 h-12' src={(darkMode)? darkIcon : lightIcon} alt="moon icon" />
+        <img onClick={() => setDarkMode(!darkMode)} className='cursor-pointer absolute lg:mr-20 right-2 top-1/2 transform -translate-y-1/2 w-12 h-12' src={(darkMode)? darkIcon : lightIcon} alt="moon icon" />
       </div>
 
       {/* Ensure the input box and button are above the header */}
-      <div className='relative z-20 flex gap-4 justify-center items-center -mt-10'>
-        <input type="text" ref={taskRef} placeholder='Add a new task 📝' className='text-gray-500 dark:bg-Header font-roboto shadow-2xl rounded-lg dark:text-white font-semibold p-3 h-16 w-1/3' />
-    
-        {darkMode ? <DarkButton onClick={handleClick} /> : <LightButton onClick={handleClick} />}
-        </div>
+      <div className='m-10 relative z-20 flex flex-col sm:flex-row gap-4 justify-center items-center -mt-10'>
+  <input
+    type="text"
+    ref={taskRef}
+    placeholder='Add a new task 📝'
+    className='text-gray-500 dark:bg-Header font-roboto shadow-2xl rounded-lg dark:text-white font-semibold p-3 h-16 max-w-3xl w-full'
+  />
+  
+  <div className='flex-shrink-0'>
+    {darkMode ? <DarkButton onClick={handleClick} /> : <LightButton onClick={handleClick} />}
+  </div>
+</div>
+
     </>
   );
 }

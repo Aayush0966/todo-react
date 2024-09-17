@@ -48,19 +48,19 @@ function TaskList() {
             <div className='flex gap-2 justify-center items-center'>
               <Button
                 onClick={() => handleFilterChange('all')}
-                className={filter === 'all' ? 'bg-indigo-600' : ''}
+                className={filter === 'all' ? 'bg-indigo-800' : ''}
               >
                 All
               </Button>
               <Button
                 onClick={() => handleFilterChange('completed')}
-                className={filter === 'completed' ? 'bg-indigo-600' : ''}
+                className={filter === 'completed' ? 'bg-indigo-800' : ''}
               >
                 Completed
               </Button>
               <Button
                 onClick={() => handleFilterChange('active')}
-                className={filter === 'active' ? 'bg-indigo-600' : ''}
+                className={filter === 'active' ? 'bg-indigo-800' : ''}
               >
                 Active
               </Button>

@@ -21,7 +21,7 @@ const TaskBox = ({ task }) => {
   return (
     <>
 
-    <div className={`flex w-2/4 shadow-md font-roboto font-semibold justify-between mx-auto ${task.completed? 'bg-green-300' : 'bg-white'} border  dark:bg-Header dark:border-gray-600 m-6 overflow-hidden rounded-lg`}>
+    <div className={`flex sm:w-96  lg:w-2/4 shadow-md font-roboto font-semibold justify-between mx-auto ${task.completed? 'bg-green-300' : 'bg-white'} border  dark:bg-Header dark:border-gray-600 m-6 overflow-hidden rounded-lg`}>
       <label className="flex items-center ml-3">
         <input
           type="checkbox"
