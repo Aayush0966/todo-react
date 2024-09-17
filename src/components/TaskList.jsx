@@ -46,24 +46,25 @@ function TaskList() {
         {!noTask && (
           <div>
             <div className='flex gap-2 justify-center items-center'>
-              <Button
+            <Button
                 onClick={() => handleFilterChange('all')}
-                className={filter === 'all' ? 'bg-indigo-800' : ''}
+                className={filter === 'all' ? 'bg-indigo-800 text-white' : 'bg-white text-black'}
               >
                 All
               </Button>
               <Button
                 onClick={() => handleFilterChange('completed')}
-                className={filter === 'completed' ? 'bg-indigo-800' : ''}
+                className={filter === 'completed' ? 'bg-indigo-800 text-white' : 'bg-white text-black'}
               >
                 Completed
               </Button>
               <Button
                 onClick={() => handleFilterChange('active')}
-                className={filter === 'active' ? 'bg-indigo-800' : ''}
+                className={filter === 'active' ? 'bg-indigo-800 text-white' : 'bg-white text-black'}
               >
                 Active
               </Button>
+
             </div>
             {filteredTasks().map(task => (
               <TaskBox key={task.id} task={task} />
